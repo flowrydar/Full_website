@@ -1,0 +1,16 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+
+# Enable CORS
+Header set Access-Control-Allow-Origin "*"
+
+# Cache static assets
+<FilesMatch "\.(jpg|jpeg|png|gif|ico|svg|woff2|css|js)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes 

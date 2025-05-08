@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Great+Vibes&family=Dancing+Script&family=Lato:wght@300;400;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+    touch-action: manipulation; /* Better touch behavior */
+  }
+
+  body {
+    @apply bg-wedding-deep-black text-foreground font-sans overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+  
+  .vh-fix {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  input, textarea, select, button {
+    @apply font-sans;
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+}
+
+/* Enhanced gold and lilac utility classes */
+.gold-border {
+  @apply border border-wedding-gold;
+}
+
+.lilac-glow {
+  text-shadow: 0 0 10px rgba(155, 135, 245, 0.5);
+}
+
+.gold-text {
+  @apply text-wedding-gold;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.3), 0 0 2px rgba(212, 175, 55, 0.2);
+  letter-spacing: 0.03em;
+}
+
+.gold-gradient-text {
+  @apply text-transparent bg-gold-gradient bg-clip-text;
+}
+
+.lilac-text {
+  @apply text-wedding-lilac;
+}
+
+.bg-gold-foil {
+  background: linear-gradient(135deg, #D4AF37 10%, #FBF5E0 50%, #D4AF37 90%);
+}
+
+/* Enhanced custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #D4AF37, #9b87f5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #9b87f5, #D4AF37);
+}
+
+/* Custom scrollbar for comment section */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #D4AF37, #9b87f5);
+  border-radius: 10px;
+}
+
+/* Full height sections */
+.full-height {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* 3D transform utilities for invitation animation */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.rotate-y-0 {
+  transform: rotateY(0deg);
+}
+
+.rotate-y-90 {
+  transform: rotateY(90deg);
+}
+
+/* Add additional animation for fade-in elements */
+@keyframes elegant-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.elegant-fade-in {
+  animation: elegant-fade-in 1.5s ease-out forwards;
+}
+
+/* Interactive hover animations */
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.gentle-float {
+  animation: gentle-float 3s ease-in-out infinite;
+}
+
+/* Enhanced shimmer effect for gold elements */
+@keyframes gold-shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #D4AF37 25%, #f9e2a7 50%, #D4AF37 75%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer 3s linear infinite;
+}
+
+/* Gold metallic button effect */
+.gold-button {
+  background: linear-gradient(135deg, #D4AF37 0%, #f9e2a7 50%, #D4AF37 100%);
+  background-size: 200% 100%;
+  transition: background-position 0.5s ease-in-out;
+}
+
+.gold-button:hover {
+  background-position: right center;
+}
+
+/* Improved lilac button hover effect */
+.lilac-hover:hover {
+  background-color: #9b87f5;
+  box-shadow: 0 0 15px rgba(155, 135, 245, 0.5);
+}
+
+/* New elegant border styles */
+.elegant-border-gold {
+  @apply border border-wedding-gold/70 shadow-[0_0_10px_rgba(212,175,55,0.2)];
+}
+
+.elegant-border-lilac {
+  @apply border border-wedding-lilac/70 shadow-[0_0_10px_rgba(155,135,245,0.2)];
+}
+
+/* Luxury card styles */
+.luxury-card {
+  @apply bg-black/80 border border-wedding-gold/60 rounded-md p-6 shadow-[0_5px_15px_rgba(0,0,0,0.3)] backdrop-blur-sm;
+}
+
+/* Elegant form input styles */
+.elegant-input {
+  @apply bg-black/50 border border-wedding-gold/60 text-white rounded-md px-4 py-2 focus:border-wedding-lilac focus:outline-none transition-colors duration-300;
+}
+
+/* Style for gold-lilac gradient border */
+.border-gradient-gold-lilac {
+  position: relative;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+.border-gradient-gold-lilac::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: -1px;
+  border-radius: inherit;
+  background: linear-gradient(to right, #D4AF37, #9b87f5);
+  z-index: -1;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .mobile-text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .mobile-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .mobile-touch-target {
+    min-height: 44px; /* Apple's recommended minimum touch target size */
+  }
+}
+
+/* Fix for iOS 100vh issue */
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Add custom animation for the thank you popup */
+@keyframes thank-you-popup {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.thank-you-popup {
+  animation: thank-you-popup 4s ease-in-out;
+}
+
+@keyframes gold-border-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+.gold-border-pulse {
+  animation: gold-border-pulse 2s infinite;
+}
+
+/* Masquerade Entrance Animation Styles */
+.mask-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  animation-name: sparkleDissolve;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 0 4px 1px rgba(212, 175, 55, 0.6);
+  z-index: 10;
+  filter: blur(0.5px);
+}
+
+/* Special sparkles with glow effect */
+.sparkle:nth-child(3n) {
+  filter: blur(0px);
+  box-shadow: 0 0 8px 2px rgba(212, 175, 55, 0.8);
+}
+
+.sparkle:nth-child(7n) {
+  filter: blur(0px);
+  box-shadow: 0 0 8px 2px rgba(155, 135, 245, 0.8);
+}
+
+@keyframes sparkleDissolve {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2) translate(
+      calc(var(--random-x, 0) * 150px), 
+      calc(var(--random-y, -1) * 150px)
+    );
+  }
+}
+
+/* Generate random positions for sparkles */
+.sparkle:nth-child(2n) { --random-x: 1; --random-y: -1; }
+.sparkle:nth-child(3n) { --random-x: -1; --random-y: -1; }
+.sparkle:nth-child(4n) { --random-x: 1; --random-y: 1; }
+.sparkle:nth-child(5n) { --random-x: -1; --random-y: 1; }
+.sparkle:nth-child(6n) { --random-x: 0.5; --random-y: -0.5; }
+.sparkle:nth-child(7n) { --random-x: -0.5; --random-y: -0.5; }
+.sparkle:nth-child(8n) { --random-x: 0.5; --random-y: 0.5; }
+.sparkle:nth-child(9n) { --random-x: -0.5; --random-y: 0.5; }
+.sparkle:nth-child(10n) { --random-x: 0; --random-y: -1; }
+
+/* Variation in animation timing for a more natural effect */
+.sparkle:nth-child(3n) { animation-delay: 0.1s; }
+.sparkle:nth-child(5n) { animation-delay: 0.3s; }
+.sparkle:nth-child(7n) { animation-delay: 0.5s; }
+.sparkle:nth-child(11n) { animation-delay: 0.7s; }
+.sparkle:nth-child(13n) { animation-delay: 0.9s; }
+.sparkle:nth-child(17n) { animation-delay: 1.1s; }
+.sparkle:nth-child(19n) { animation-delay: 1.3s; }
+
+/* Wedding Toast Styles */
+.wedding-toast {
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-width: 1px;
+  animation: toastSlideIn 0.4s ease-out;
+}
+
+.wedding-toast::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, rgba(212, 175, 55, 0.3), rgba(200, 162, 200, 0.3));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.wedding-toast-success::before {
+  background: linear-gradient(45deg, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.2));
+}
+
+.wedding-toast-error::before {
+  background: linear-gradient(45deg, rgba(239, 68, 68, 0.5), rgba(239, 68, 68, 0.2));
+}
+
+.wedding-toast-loading::before {
+  background: linear-gradient(45deg, rgba(212, 175, 55, 0.3), rgba(200, 162, 200, 0.3));
+  animation: loadingGradient 2s linear infinite;
+}
+
+.wedding-toast-info::before {
+  background: linear-gradient(45deg, rgba(200, 162, 200, 0.5), rgba(200, 162, 200, 0.2));
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes loadingGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add shimmer effect to loading toast */
+.wedding-toast-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.wedding-toast-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0) 0,
+    rgba(212, 175, 55, 0.05) 20%,
+    rgba(212, 175, 55, 0.1) 60%,
+    rgba(212, 175, 55, 0)
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
